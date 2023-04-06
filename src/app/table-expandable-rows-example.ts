@@ -22,9 +22,20 @@ export class TableExpandableRowsExample {
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
   expandedElement: PeriodicElement | null;
 
+  ElementsSelecteds: any[] = []
   teste(){
     this.expandedElement =  this.expandedElement == ELEMENT_DATA[0] ? null : ELEMENT_DATA[0]
   }
+
+  setElement(element: any){
+    if(!this.ElementsSelecteds.includes(element)){
+      this.ElementsSelecteds.push(element)
+      return
+    }
+    this.ElementsSelecteds = this.ElementsSelecteds.filter(item => item != element)
+  }
+
+  
 }
 
 export interface PeriodicElement {
